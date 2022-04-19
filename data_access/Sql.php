@@ -1,5 +1,5 @@
 <?php 
-    class Sql{
+    public class Sql{
         private $connection;
 
         public __construct(){
