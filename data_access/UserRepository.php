@@ -17,6 +17,7 @@
                 "fullname" => $user->fullname
             ];
             $user->id = $this->sql->execute($query, $params);
+            $user->password = md5($user->password);
             return $user;
         }
 
