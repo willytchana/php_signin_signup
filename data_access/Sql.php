@@ -1,8 +1,8 @@
 <?php 
-    public class Sql{
+    class Sql{
         private $connection;
 
-        public __construct(){
+        public function __construct(){
             $this->connection = new PDO(
                 "mysql:host=localhost;dbname=php1_db;charset=utf8",
                 "root",
@@ -17,13 +17,13 @@
         }
 
         public function execute($query, $params){
-            $statement = getStatement($query, $params);
+            $statement = $this->getStatement($query, $params);
             $id = $this->connection->lastInsertId();
             return $id;
         }
 
         public function read($query, $params){
-            $statement = getStatement($query, $params);
+            $statement = $this->getStatement($query, $params);
             $data = $statement->fetchAll(PDO::FETCH_ASSOC);
             return $data;
         }
